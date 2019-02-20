@@ -15,11 +15,60 @@
  */
 package com.lss.demo.bankdemo;
 
+import java.util.Queue;
+
 /**
- * Function: Please Descrip This Class.
+ * Function: 银行网点.
  * <p>
  * Created by shuangshuangl on 2019/2/20.
  * Copyright (c) 2018,shuangshuangl@jumei.com All Rights Reserved.
  */
 public class Bank {
+    private  volatile  static  Bank bank;
+    private  int totalDeposit = 0;
+    private Queue<Customer> queue;
+    //单例
+    public static  Bank getInstance(){
+        if (bank == null){
+            synchronized (Bank.class){
+                bank = new Bank();
+            }
+        }
+        return bank;
+    }
+
+    private Bank() {
+    }
+
+    public static Bank getBank() {
+        return bank;
+    }
+
+    public static void setBank(Bank bank) {
+        Bank.bank = bank;
+    }
+
+    public int getTotalDeposit() {
+        return totalDeposit;
+    }
+
+    public void setTotalDeposit(int totalDeposit) {
+        this.totalDeposit = totalDeposit;
+    }
+
+    public Queue<Customer> getQueue() {
+        return queue;
+    }
+
+    public void setQueue(Queue<Customer> queue) {
+        this.queue = queue;
+    }
+
+    @Override
+    public String toString() {
+        return "Bank{" +
+                "totalDeposit=" + totalDeposit +
+                ", queue=" + queue +
+                '}';
+    }
 }

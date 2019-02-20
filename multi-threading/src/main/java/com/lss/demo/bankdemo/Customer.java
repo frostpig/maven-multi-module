@@ -16,10 +16,41 @@
 package com.lss.demo.bankdemo;
 
 /**
- * Function: Please Descrip This Class.
+ * Function: 银行客户
  * <p>
  * Created by shuangshuangl on 2019/2/20.
  * Copyright (c) 2018,shuangshuangl@jumei.com All Rights Reserved.
  */
 public class Customer {
+    private String name;
+    private int savings;
+
+    public Customer(String name, int savings) {
+        this.name = name;
+        this.savings = savings;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getSavings() {
+        return savings;
+    }
+
+    public void setSavings(int savings) {
+        this.savings = savings;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", savings=" + savings +
+                '}';
+    }
 }
