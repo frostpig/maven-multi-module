@@ -11,6 +11,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>multi-threading</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>dubbo-test</module>
+    </modules>
 
 
 </project>

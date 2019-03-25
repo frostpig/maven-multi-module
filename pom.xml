@@ -13,6 +13,8 @@
         <module>networking</module>
         <module>otter</module>
         <module>web</module>
+        <module>dubbo</module>
+        <module>regular</module>
     </modules>
 
 
