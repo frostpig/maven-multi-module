@@ -1,0 +1,2 @@
+black=com.lss.dubbodemo.spi.dubbo.demo.serviceimpl.BlackServiceImpl
+green=com.lss.dubbodemo.spi.dubbo.demo.serviceimpl.GreenServiceImpl
