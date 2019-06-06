@@ -13,27 +13,22 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.lss.dubbodemo.spi.dubbo.demo.serviceimpl;
+package com.jumei.arch.push.web.controller;
 
-import com.alibaba.dubbo.common.URL;
-import com.alibaba.dubbo.common.extension.Adaptive;
-import com.lss.dubbodemo.spi.dubbo.demo.DubboService;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Function: Please Descrip This Class.
  * <p>
- * Created by shuangshuangl on 2019/4/2.
+ * Created by timothy on 25/02/2019.
+ * Copyright (c) 2019,timothy.yue12@gmail.com All Rights Reserved.
  */
-@Adaptive
-public class GreenServiceImpl implements DubboService {
-    @Override
-    public void sayHello(URL name) {
-        System.out.println("this is greenService");
-    }
+@RestController
+public class PushController {
 
-    @Override
-    public void sayByg() {
-        System.out.println("green say bye");
+    @RequestMapping("/")
+    String index(){
+        return "Hello Spring Boot";
     }
-
 }

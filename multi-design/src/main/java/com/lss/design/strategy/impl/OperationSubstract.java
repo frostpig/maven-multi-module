@@ -13,27 +13,18 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.lss.dubbodemo.spi.dubbo.demo.serviceimpl;
+package com.lss.design.strategy.impl;
 
-import com.alibaba.dubbo.common.URL;
-import com.alibaba.dubbo.common.extension.Adaptive;
-import com.lss.dubbodemo.spi.dubbo.demo.DubboService;
+import com.lss.design.strategy.service.Strategy;
 
 /**
  * Function: Please Descrip This Class.
  * <p>
- * Created by shuangshuangl on 2019/4/2.
+ * Created by shuangshuangl on 2019/5/30.
+ * Copyright (c) 2018,shuangshuangl@jumei.com All Rights Reserved.
  */
-@Adaptive
-public class GreenServiceImpl implements DubboService {
-    @Override
-    public void sayHello(URL name) {
-        System.out.println("this is greenService");
+public class OperationSubstract implements Strategy {
+    public int doOperation(int num1, int num2) {
+        return num1 - num2;
     }
-
-    @Override
-    public void sayByg() {
-        System.out.println("green say bye");
-    }
-
 }

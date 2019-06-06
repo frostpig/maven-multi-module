@@ -15,6 +15,8 @@
  */
 package com.lss.dubbodemo.spi.dubbo.demo.serviceimpl;
 
+import com.alibaba.dubbo.common.URL;
+import com.alibaba.dubbo.common.extension.Adaptive;
 import com.lss.dubbodemo.spi.dubbo.demo.DubboService;
 
 /**
@@ -24,7 +26,12 @@ import com.lss.dubbodemo.spi.dubbo.demo.DubboService;
  */
 public class BlackServiceImpl implements DubboService {
     @Override
-    public void sayHello(String name) {
+    public void sayHello(URL url) {
         System.out.println("this is blackService");
+    }
+
+    @Override
+    public void sayByg() {
+        System.out.println("black say bye");
     }
 }

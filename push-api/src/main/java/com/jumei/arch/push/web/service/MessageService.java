@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 jumei, Inc.
+ * Copyright (C) 2019 jumei, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -13,27 +13,18 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.lss.dubbodemo.spi.dubbo.demo.serviceimpl;
+package com.jumei.arch.push.web.service;
 
-import com.alibaba.dubbo.common.URL;
-import com.alibaba.dubbo.common.extension.Adaptive;
-import com.lss.dubbodemo.spi.dubbo.demo.DubboService;
+import org.springframework.stereotype.Service;
 
 /**
  * Function: Please Descrip This Class.
  * <p>
- * Created by shuangshuangl on 2019/4/2.
+ * Created by shuangshuangl on 2019/2/27.
+ * Copyright (c) 2019,shuangshuangl@jumei.com All Rights Reserved.
  */
-@Adaptive
-public class GreenServiceImpl implements DubboService {
-    @Override
-    public void sayHello(URL name) {
-        System.out.println("this is greenService");
-    }
-
-    @Override
-    public void sayByg() {
-        System.out.println("green say bye");
-    }
-
+@Service
+public interface MessageService {
+    void sendMsgToKafka(String msg);
+    /*void initKafkaProducer();*/
 }

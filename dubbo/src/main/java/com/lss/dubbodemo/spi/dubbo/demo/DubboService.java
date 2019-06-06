@@ -15,6 +15,7 @@
  */
 package com.lss.dubbodemo.spi.dubbo.demo;
 
+import com.alibaba.dubbo.common.URL;
 import com.alibaba.dubbo.common.extension.Adaptive;
 import com.alibaba.dubbo.common.extension.SPI;
 
@@ -27,5 +28,7 @@ import com.alibaba.dubbo.common.extension.SPI;
 public interface DubboService {
 
     @Adaptive
-    void sayHello(String name);
+    void sayHello( URL url);
+
+    void sayByg();
 }

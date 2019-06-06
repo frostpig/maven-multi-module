@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 jumei, Inc.
+ * Copyright (C) 2019 jumei, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -13,27 +13,24 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.lss.dubbodemo.spi.dubbo.demo.serviceimpl;
+package com.jumei.arch.push.web;
 
-import com.alibaba.dubbo.common.URL;
-import com.alibaba.dubbo.common.extension.Adaptive;
-import com.lss.dubbodemo.spi.dubbo.demo.DubboService;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Function: Please Descrip This Class.
  * <p>
- * Created by shuangshuangl on 2019/4/2.
+ * Created by timothy on 25/02/2019.
+ * Copyright (c) 2019,timothy.yue12@gmail.com All Rights Reserved.
  */
-@Adaptive
-public class GreenServiceImpl implements DubboService {
-    @Override
-    public void sayHello(URL name) {
-        System.out.println("this is greenService");
-    }
+@RestController
+@SpringBootApplication
+public class PushApiApplication {
 
-    @Override
-    public void sayByg() {
-        System.out.println("green say bye");
+    public static void main(String[] args) {
+        SpringApplication.run(PushApiApplication.class, args);
     }
-
 }

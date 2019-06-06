@@ -9,17 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dubbo-test</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>com.lss.design</module>
-    </modules>
-    <dependencies>
-         <dependency>
-             <groupId>com.alibaba</groupId>
-             <artifactId>dubbo</artifactId>
-             <version>2.5.8</version>
-         </dependency>
-     </dependencies>
+    <groupId>com.lss.module.design</groupId>
+    <artifactId>multi.design</artifactId>
+
 
 </project>

@@ -15,7 +15,9 @@
  */
 package com.lss.dubbodemo.spi.dubbo.demo.main;
 
+import com.alibaba.dubbo.common.URL;
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
+import com.alibaba.dubbo.rpc.Protocol;
 import com.lss.dubbodemo.spi.dubbo.demo.DubboService;
 
 /**
@@ -27,6 +29,7 @@ public class ServiceMain {
     public static void main(String[] args) {
         //为什么会报错Caused by: java.lang.IllegalStateException: fail to create adative class for interface
         DubboService dubboService = ExtensionLoader.getExtensionLoader(DubboService.class).getAdaptiveExtension();
-
+        URL url =  new URL("dubbo","172.20.4.201",2181);
+        dubboService.sayHello(url);
     }
 }
