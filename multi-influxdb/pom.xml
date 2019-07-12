@@ -11,7 +11,7 @@
 
     <groupId>com.lss.module.influxdb</groupId>
     <artifactId>multi.influxdb</artifactId>
-
+    <packaging>jar</packaging>
     <dependencies>
         <dependency>
             <groupId>org.influxdb</groupId>

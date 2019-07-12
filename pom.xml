@@ -18,6 +18,7 @@
         <module>classloader-demo</module>
         <module>multi-design</module>
         <module>multi-influxdb</module>
+        <module>mulit-netty</module>
     </modules>
 
 
