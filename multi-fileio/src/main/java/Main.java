@@ -173,6 +173,7 @@ public class Main {
             randomFile.seek(fileLength);
             randomFile.writeBytes(content);
             randomFile.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -13,7 +13,10 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.lss.echo.client;
+package com.lss.echo.aio.server;
+
+import java.nio.channels.CompletionHandler;
+import java.util.concurrent.Future;
 
 /**
  * Function: Please Descrip This Class.
@@ -21,8 +24,15 @@ package com.lss.echo.client;
  * Created by shuangshuangl on 2019/7/24.
  * Copyright (c) 2018,shuangshuangl@jumei.com All Rights Reserved.
  */
-public class TimeClientHandle  implements Runnable {
-    public void run() {
-
+public class TimeServer {
+    public static void main(String[] args) {
+        int port = 8080;
+        try {
+            if (args != null && args.length >0){
+                port = Integer.valueOf(args[0]);
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
     }
 }
