@@ -25,15 +25,6 @@ import java.nio.channels.CompletionHandler;
  * Created by shuangshuangl on 2019/7/24.
  * Copyright (c) 2018,shuangshuangl@jumei.com All Rights Reserved.
  */
-public class AcceptCompletionHandler implements CompletionHandler<AsynchronousSocketChannel,? super A> {
+public class AcceptCompletionHandler {
 
-    @Override
-    public void completed(AsynchronousSocketChannel result, Object attachment) {
-
-    }
-
-    @Override
-    public void failed(Throwable exc, Object attachment) {
-
-    }
 }

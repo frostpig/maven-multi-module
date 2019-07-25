@@ -48,8 +48,10 @@ public class AsyncTimeServerHandler implements Runnable{
     }
 
 
-    public void doconnec(){
+    public void doconnect(){
+/*
         asynchronousServerSocketChannel.accept(this, new CompletionHandler);
+*/
     }
 
 }
