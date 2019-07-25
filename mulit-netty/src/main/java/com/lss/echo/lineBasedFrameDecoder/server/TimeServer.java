@@ -13,8 +13,9 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.lss.echo.server;
+package com.lss.echo.lineBasedFrameDecoder.server;
 
+import com.lss.echo.server.TimerServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -23,11 +24,13 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.FixedLengthFrameDecoder;
 import io.netty.handler.codec.LineBasedFrameDecoder;
+import io.netty.handler.codec.string.StringDecoder;
 
 /**
  * Function:netty重构时间服务器程序 ----服务端
- * 此程序也并没有考虑读半包的情况
+ * 解决粘包
  * 此程序只能进行简单的功能演示或者测试，如果对此程序进行性能或者压力测试，无法正确工作，
  * <p>
  * Created by shuangshuangl on 2019/7/25.
@@ -74,8 +77,15 @@ public class TimeServer {
 
         @Override
         protected void initChannel(SocketChannel ch) throws Exception {
-            ch.pipeline().addLast(new TimerServerHandler());
+            /*
 
+            ByteBuf delimiter = Unpooled.copiedBuffer("$_".getBytes());
+            ch.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,delimiter));*/
+
+            ch.pipeline().addLast(new LineBasedFrameDecoder(1024));
+            ch.pipeline().addLast(new StringDecoder());
+            ch.pipeline().addLast(new TimerServerHandler());
+            ch.pipeline().addLast(new FixedLengthFrameDecoder(20));
         }
     }
 

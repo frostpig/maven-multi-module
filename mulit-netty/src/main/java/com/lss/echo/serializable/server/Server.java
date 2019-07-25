@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 jumei, Inc.
+ * Copyright (C) 2018 jumei, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -13,18 +13,13 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.jumei.arch.push.web.service;
-
-import org.springframework.stereotype.Service;
+package com.lss.echo.serializable.server;
 
 /**
  * Function: Please Descrip This Class.
  * <p>
- * Created by shuangshuangl on 2019/2/27.
- * Copyright (c) 2019,shuangshuangl@jumei.com All Rights Reserved.
+ * Created by shuangshuangl on 2019/7/25.
+ * Copyright (c) 2018,shuangshuangl@jumei.com All Rights Reserved.
  */
-@Service
-public interface MessageService {
-    void sendMsgToKafka(String msg);
-    /*void initKafkaProducer();*/
+public class Server {
 }

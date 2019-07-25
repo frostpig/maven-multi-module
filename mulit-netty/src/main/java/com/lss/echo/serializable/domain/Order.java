@@ -13,22 +13,16 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.jumei.arch.push.web.controller;
+package com.lss.echo.serializable.domain;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import java.io.Serializable;
 
 /**
  * Function: Please Descrip This Class.
  * <p>
- * Created by timothy on 25/02/2019.
- * Copyright (c) 2019,timothy.yue12@gmail.com All Rights Reserved.
+ * Created by shuangshuangl on 2019/7/25.
+ * Copyright (c) 2018,shuangshuangl@jumei.com All Rights Reserved.
  */
-@RestController
-public class PushController {
+public class Order implements Serializable {
 
-    @RequestMapping("/")
-    String index(){
-        return "Hello Spring Boot";
-    }
 }
