@@ -61,6 +61,7 @@ public class TimeClientHandler extends ChannelInboundHandlerAdapter {
         try {
             ByteBuf byteBuf = (ByteBuf) msg;
             byte[] bytes = new byte[byteBuf.readableBytes()];
+            //将当前ByteBuf的数据读取到byte[]数组中。
             byteBuf.readBytes(bytes);
             String body = new String(bytes,"UTF-8");
             ctx.write(body);

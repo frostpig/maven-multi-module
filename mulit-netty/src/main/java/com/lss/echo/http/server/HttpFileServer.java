@@ -18,7 +18,6 @@ package com.lss.echo.http.server;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
@@ -29,13 +28,17 @@ import io.netty.handler.codec.http.HttpResponseEncoder;
 import io.netty.handler.stream.ChunkedWriteHandler;
 
 /**
- * Function: Please Descrip This Class.
+ * Function: Http文件服务器 启动类   待测试
+ * 文件服务器使用http协议对外提供服务，当客户端通过浏览器访问文件服务器时，对访问路径进行检查，
+ * 检查失败时返回HTTP 403错误，该页无法访问，如果校验通过，以链接的方式打开当前文件目录，每个目录或者
+ * 文件都是个超链接，可以递归访问。
+ * 如果是目录，可以递归访问它下面的子目录或者文件，如果是文件，且可读，则可以在浏览器端直接打开，
+ * 或者通过【目标另存为】下载该文件。
  * <p>
  * Created by shuangshuangl on 2019/7/26.
- * Copyright (c) 2018,shuangshuangl@jumei.com All Rights Reserved.
  */
 public class HttpFileServer {
-    private static final String DEFAULT_URL = "/src/com/phei/netty";
+    private static final String DEFAULT_URL = "/src/main/java/com/lss/echo/http/server";
 
     public static void main(String[] args) {
         int port = 8080;
@@ -51,7 +54,7 @@ public class HttpFileServer {
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-        new HttpFileServer().run(port,url);
+        new HttpFileServer().run(port, url);
     }
 
     public void run(final int port, final String url) {
@@ -61,7 +64,7 @@ public class HttpFileServer {
             ServerBootstrap b = new ServerBootstrap();
             b.group(boss, worker)
                     .channel(NioServerSocketChannel.class)
-                    .handler(new ChannelInitializer<SocketChannel>() {
+                    .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ch.pipeline().addLast("http-decoder", new HttpRequestDecoder());
@@ -72,6 +75,7 @@ public class HttpFileServer {
                         }
                     });
             ChannelFuture f = b.bind("127.0.0.1", port).sync();
+            System.out.println("网址是http://127.0.0.1:" + port + url);
             f.channel().closeFuture().sync();
         } catch (Exception e) {
             e.printStackTrace();

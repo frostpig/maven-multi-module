@@ -15,6 +15,9 @@
  */
 package com.lss.echo.nio.server;
 
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelFuture;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
@@ -127,7 +130,6 @@ public class MultipiexerTimeServer implements Runnable{
                     System.out.println("the time server receive order:"+ body);
                     String currentime = "QUERY TIME ORDER".equalsIgnoreCase(body) ? new Date(System.currentTimeMillis()).toString():"BAD ORDER";
                     dowrite(socketChannel,currentime);
-
                 }else if (readBytes < 0){
                     //对端链路关闭
                     key.cancel();

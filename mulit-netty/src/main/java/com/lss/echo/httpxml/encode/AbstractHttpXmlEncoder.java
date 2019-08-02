@@ -13,38 +13,27 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.jumei.arch.push.web.controller;
+package com.lss.echo.httpxml.encode;
 
-import com.jumei.arch.push.web.service.HiveService;
-import com.jumei.arch.push.web.service.PhoenixService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.sun.xml.internal.ws.api.BindingIDFactory;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.MessageToMessageEncoder;
+import javafx.beans.binding.IntegerBinding;
 
-import javax.annotation.Resource;
+import java.io.StringWriter;
+import java.nio.charset.Charset;
 import java.util.List;
 
 /**
  * Function: Please Descrip This Class.
  * <p>
- * Created by shuangshuangl on 2019/3/1.
+ * Created by shuangshuangl on 2019/7/29.
  * Copyright (c) 2018,shuangshuangl@jumei.com All Rights Reserved.
  */
-@RestController
-public class HiveDataSourceController {
-
-    @Resource
-    private HiveService hiveService;
-    @Resource
-    private PhoenixService phoenixService;
-
-    @RequestMapping(value = "/getData")
-    public List<String> getData() {
-        return hiveService.getData();
-    }
-/*
-    @RequestMapping(value = "/get")
-    public void get() {
-        phoenixService.test();
-    }*/
+public class AbstractHttpXmlEncoder<H>  {
+    private IntegerBinding factory = null;
+    private StringWriter stringWriter  = null;
+    final static String CHARSET_NAME = "UTF-8";
+    final static Charset UTF_8 = Charset.forName(CHARSET_NAME);
 
 }
