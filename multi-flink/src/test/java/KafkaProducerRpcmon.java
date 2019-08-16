@@ -34,7 +34,7 @@ public class KafkaProducerRpcmon {
 private static String data = "{\"host\":\"10.17.72.188\",\"logmark\":\"antifraud-service\",\"value\":\"123\"}";
 private static String data1 = "{\"host\":\"10.17.72.188\",\"logmark\":\"fraud-service\",\"value\":\"1\"}";
 private static String data2 = "{\"host\":\"10.17.72.189\",\"logmark\":\"fraud-service\",\"value\":\"3\"}";
-private static String data3 = "{\"host\":\"10.17.72.189\",\"logmark\":\"dfs-service\",\"value\":\"12\"}";
+    private static String data3 = "{\"host\":\"10.17.72.189\",\"logmark\":\"dfs-service\",\"value\":\"12\"}";
 
 /*
     private static String data = "{\"host\":\"10.17.72.188\",\"logmark\":\"antifraud-service\",\"message\":\"127.0.0.1\\t" + (String.valueOf(System.currentTimeMillis())).substring(0, 10) + "\\t9\\t0.21038770675659\\t1\\t2\\t[9]\",\"offset\":31802,\"path\":\"/home/www/PHPServer/logs/statistic/st/RiskScore/getScoreV2|2019-06-12\",\"project\":\"antifraud-service\",\"topicid\":\"owl_rpcmon_overview\",\"type\":\"owl\",\"@version\":\"1\",\"@timestamp\":\"2019-06-12T08:49:04.498Z\"}";
@@ -56,18 +56,11 @@ private static String data3 = "{\"host\":\"10.17.72.189\",\"logmark\":\"dfs-serv
         Random random = new Random();
 
         KeyedMessage<String, String> keyedMessage = new KeyedMessage<String, String>("owl_rpcmon_overview", data);
-        KeyedMessage<String, String> keyedMessage1 = new KeyedMessage<String, String>("owl_rpcmon_overview", data1);
-        KeyedMessage<String, String> keyedMessage2 = new KeyedMessage<String, String>("owl_rpcmon_overview", data2);
-        KeyedMessage<String, String> keyedMessage3 = new KeyedMessage<String, String>("owl_rpcmon_overview", data3);
-        List<KeyedMessage<String,String>> list = new ArrayList<>();
-        list.add(keyedMessage);
-        list.add(keyedMessage1);
-        list.add(keyedMessage2);
-        list.add(keyedMessage3);
+
 
         try {
             while (true) {
-                producer.send(list);
+                producer.send(keyedMessage);
                 Thread.sleep(1000);
             }
         } catch (Exception e) {

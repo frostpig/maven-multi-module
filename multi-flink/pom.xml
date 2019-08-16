@@ -89,6 +89,11 @@ under the License.
             <artifactId>flink-connector-kafka-0.8_${scala.binary.version}</artifactId>
             <version>${flink.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-elasticsearch5_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
         <!-- Add connector dependencies here. They must be in the default scope (compile). -->
 
         <!-- Example:
@@ -171,8 +176,8 @@ under the License.
             <properties>
                 <env>prod</env>
                 <!-- kafka cfg -->
-                <mvn.kafka.zookeeper.connect>172.20.4.201:2181,172.20.4.203:2181,172.20.4.204:2181</mvn.kafka.zookeeper.connect>
-                <mvn.kafka.broker.list>172.20.4.201:9092,172.20.4.203:9092,172.20.4.204:9092</mvn.kafka.broker.list>
+                <mvn.kafka.zookeeper.connect>172.20.4.203:2181</mvn.kafka.zookeeper.connect>
+                <mvn.kafka.broker.list>172.20.4.203:9092</mvn.kafka.broker.list>
                 <mvn.kafka.group.id>test</mvn.kafka.group.id>
                 <mvn.kafka.topic.id>owl_rpcmon_overview</mvn.kafka.topic.id>
                 <!-- es cfg -->
