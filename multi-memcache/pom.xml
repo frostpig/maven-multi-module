@@ -9,12 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.lss.module.design</groupId>
-    <artifactId>multi.design</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>mulit-flink</module>
-    </modules>
+    <groupId>com.lss.module</groupId>
+    <artifactId>multi- memcache</artifactId>
 
 
 </project>

@@ -60,10 +60,20 @@ public class KafkaProducerRpcmonTest {
         try {
             while (true) {
                 String ss = "{\"host\":\"11.17.72.188\",\"logmark\":\"antifraud-service\",\"message\":\"127.0.0.1\\t" + (String.valueOf(System.currentTimeMillis())).substring(0, 10) + "\\t9\\t0.21038770675659\\t1\\t2\\t[9]\",\"offset\":31802,\"path\":\"/home/www/PHPServer/logs/statistic/st/RiskScore/getScoreV2|2019-06-12\",\"project\":\"antifraud-service\",\"topicid\":\"owl_rpcmon_overview\",\"type\":\"owl\",\"@version\":\"1\",\"@timestamp\":\""+sdf.format(new Date())+"\"}";
+/*
+                String s1 = "{\"host\":\"11.17.72.188\",\"logmark\":\"jiki-service\",\"message\":\"127.0.0.1\\t" + (String.valueOf(System.currentTimeMillis())).substring(0, 10) + "\\t9\\t0.21038770675659\\t1\\t2\\t[9]\",\"offset\":31802,\"path\":\"/home/www/PHPServer/logs/statistic/st/RiskScore/getScoreV2|2019-06-12\",\"project\":\"jiki-service\",\"topicid\":\"owl_rpcmon_overview\",\"type\":\"owl\",\"@version\":\"1\",\"@timestamp\":\""+sdf.format(new Date())+"\"}";
+*/
 
                 KeyedMessage<String, String> keyedMessage = new KeyedMessage<String, String>("owl_rpcmon_overview", ss);
+/*
+                KeyedMessage<String, String> keyedMessage1 = new KeyedMessage<String, String>("owl_rpcmon_overview", s1);
+*/
                 producer.send(keyedMessage);
-                Thread.sleep(2000);
+/*
+                producer.send(keyedMessage1);
+*/
+
+                Thread.sleep(1000);
             }
 
         } catch (Exception e) {

@@ -19,6 +19,13 @@
         <module>multi-design</module>
         <module>multi-influxdb</module>
         <module>mulit-netty</module>
+        <module>mulit-storm</module>
+        <module>multi-flink</module>
+        <module>multi-flink</module>
+        <module>multi-memcache</module>
+        <module>multi-redis</module>
+        <module>multi-algorithm</module>
+        <module>multi-thrift</module>
     </modules>
 
 
