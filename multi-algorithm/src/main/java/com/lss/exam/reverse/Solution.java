@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.lss.exam;
+package com.lss.exam.reverse;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

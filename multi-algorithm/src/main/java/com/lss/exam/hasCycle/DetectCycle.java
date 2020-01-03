@@ -13,26 +13,29 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+package com.lss.exam.hasCycle;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
+import com.lss.exam.common.ListNode;
 
 /**
  * Function: Please Descrip This Class.
  * <p>
- * Created by shuangshuangl on 2019/6/24.
+ * Created by shuangshuangl on 2019/12/31.
  * Copyright (c) 2018,shuangshuangl@jumei.com All Rights Reserved.
  */
-public class test01 {
-    public static void main(String[] args) throws ParseException {
-        String time = "2020-01-02T10:05:12Z";
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-        df.setTimeZone(TimeZone.getTimeZone("UTC"));
-        Date date = df.parse(time);
-        System.out.println(date);
+public class DetectCycle {
+    public ListNode detectCycle(ListNode head) {
+         ListNode fast = head.next;
+         ListNode slow = head;
+         while (fast != slow){
+             if (fast == null || fast.next == null){
+                 return fast;
+             }
+             fast = fast.next.next;
+             slow = slow.next;
+         }
+         return fast;
     }
+
 
 }

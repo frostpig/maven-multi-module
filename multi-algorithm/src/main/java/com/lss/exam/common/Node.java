@@ -13,26 +13,17 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
+package com.lss.exam.common;
 
 /**
  * Function: Please Descrip This Class.
  * <p>
- * Created by shuangshuangl on 2019/6/24.
+ * Created by shuangshuangl on 2019/12/30.
  * Copyright (c) 2018,shuangshuangl@jumei.com All Rights Reserved.
  */
-public class test01 {
-    public static void main(String[] args) throws ParseException {
-        String time = "2020-01-02T10:05:12Z";
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-        df.setTimeZone(TimeZone.getTimeZone("UTC"));
-        Date date = df.parse(time);
-        System.out.println(date);
-    }
+public class Node {
+    public   Object data;    //存储节点数据
+    public  Node next;  //指向下一节点
+
 
 }
